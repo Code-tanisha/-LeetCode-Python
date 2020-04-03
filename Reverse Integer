@@ -1,0 +1,16 @@
+class Solution(object):
+    def reverse(self, x):
+        rev = 0
+        neg = 1
+        if (x<0):
+            neg = -1
+            x = -x
+        while (x!=0):
+            a = x % 10         # get the lowest digit in the x and then push it into the rev
+            x = x / 10         # truncate the last one digit
+            if (rev > 2147483647 / 10) or (rev == 2147483647 / 10 and a > 7):     # to test if the rev is exceeding the limits
+                return 0
+            rev = rev*10 + a # the lowest digit in the x now become highest, etc
+            
+        return neg * rev
+        
