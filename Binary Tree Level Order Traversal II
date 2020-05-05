@@ -1,0 +1,14 @@
+ if not root:
+            return []
+        result = []
+        nodes = [root]
+        while nodes:
+            result.append([node.val for node in nodes])
+            next_nodes = []
+            for node in nodes:
+                if node.left:
+                    next_nodes.append(node.left)
+                if node.right:
+                    next_nodes.append(node.right)
+            nodes = next_nodes
+        return result[::-1]
