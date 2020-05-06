@@ -1,0 +1,19 @@
+class Solution(object):
+    def binaryTreePaths(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[str]
+        """
+        res = []
+        if not root:
+            return res
+        if not root.left and not root.right:
+            # We have converted in str coz we are using append function
+            res.append(str(root.val))
+            return res
+        for i in self.binaryTreePaths(root.left):
+            res.append(str(root.val)+'->'+i)
+        for i in self.binaryTreePaths(root.right):
+            res.append(str(root.val)+'->'+i)
+        return res
+        
